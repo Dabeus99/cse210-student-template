@@ -1,9 +1,12 @@
-using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void main(string[] args)
     {
-        Console.WriteLine("Hello Develop03 World!");
+        word myWord = new word("Secret");
+
+        myWord. Display();
+        myWord.Hide();
+        myWord.Display();
     }
 }
