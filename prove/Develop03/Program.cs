@@ -1,15 +1,30 @@
 
 class Program
 {
-    static void main(string[] args)
+    static void Main(string[] args)
     {
-        Word myWord = new Word("Secret");
+        Scripture myScripture = new Scripture("Moses", 1, 39,
+        "For behold, this is my work and my glory to bring to pass the immortality and eternal life of man.");
 
-        myWord. Display();
-        myWord.Hide();
-        myWord.Display();
+        while (true)
+        {
+            Console.Clear();
+            myScripture.ShowScripture();
 
-        Scripture myScripture = new Scripture("Mosses", 1, 39, "Behold this is my work and my glory to bring to pass the immortality adn eternal life of man");
-        myScripture.ShowScripture();
+            if (myScripture.IsCompletelyHidden())
+            {
+                break;
+            }
+            
+            Console.WriteLine("Press Enter to hide words or type quit:");
+            string input = Console.ReadLine();
+
+            if(input.Trim().ToLower() == "quit")
+            {
+                break;
+            }
+
+            myScripture.HideRandomWords();
+        }
     }
 }
