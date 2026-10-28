@@ -1,50 +1,21 @@
-using System;
-using System.Collections.Generic;
-
-
 class Program
-{
-    static void Main(string[] args)
     {
-    List<int> nums = new List<int>();
-    int userNumber = -1;
-
-    Console.WriteLine("Enter a list of numbers, type 0 when finished. ");
-
-
-    while (userNumber != 0)
-        {
-            Console.Write("Enter number: ");
-            userNumber = int.Parse(Console.ReadLine());
-
-            if (userNumber !=0)
-            {
-                nums.Add(userNumber);
-            }
-        }
-        
-    int sum = 0;
-    foreach (int num in nums)
+        static void Main(string[] args)
     {
-            sum += num;
+
+        WritingAssignment myWriting = new WritingAssignment("Mary Waters","European History", "The Causes of World War II");
+        Console.WriteLine(myWriting.GetWritingInformation());
+
+        Assignment myAssigment = new Assignment("Mary Waters","European History");
+        Console.WriteLine(myAssigment.getSummary());
+ 
+        MathAssignment myMathAssignment = new MathAssignment("Mary Waters","European History", "The Causes of World War II", "by: Mary Waters");
+        Console.WriteLine(myMathAssignment.GetHomeworkList());
+
+      
     }
-    Console.WriteLine($"The sum is: {sum}");
 
-    float average = ((float)sum) / nums.Count;
-    Console.WriteLine($"The average is: {average}");
-
-    int max = nums[0];
-    foreach (int num in nums)
-        {
-            if (num > max)
-            {
-                max = num;
-            }
-        }
-Console.WriteLine($"The largest number is: {max}");
-}
-}
-
-
-
-  
+        
+ 
+    }
+    
