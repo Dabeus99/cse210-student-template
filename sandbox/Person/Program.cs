@@ -1,31 +1,43 @@
 ﻿class Program
 {
-    public static void Main(string[] args)
+
+    public static void DisplayPersonInformation(Person person)
+  {
+    // if (person is Doctor d)
+    // {
+    //   Console.WriteLine(d.GetDoctorInformation());
+    // } 
+    // else if (person is Police p)
+    // {
+    //   Console.WriteLine(p.GetPoliceInformation());
+    // }
+    // else
+    // {
+    Console.Write($"Sallary{person.GetSalary()}");
+      Console.WriteLine(person.GetPersonInformation());
+    }
+  
+    public static void Main()
     {
        Person myPerson = new Person("John", "Doe", 30, 180.5);
-         Console.WriteLine(myPerson.GetPersonInfo());
 
           Doctor myDoctor = new Doctor("Bob", "Doe", 30, 400, "knife");
-        Console.WriteLine(myDoctor.GetPersonInfo());
-
-        Console.WriteLine(myDoctor.GetDoctorInfo());
 
       Police myPolice = new Police("Gary", "GooMan", 61, 181, "Guns");
-      Console.WriteLine(myPolice.GetPoliceInformation());
 
 
 
         List<Person> myPeople = new List<Person>();
 
-        myPeople.Add(myPerson);
+        //myPeople.Add(myPerson); you can no longer dreate a instance of a base class
         myPeople.Add(myPerson);
         myPeople.Add(myPerson);
 
         foreach(Person person in myPeople)
     {
-      if (person )
-      Console.WriteLine(person.GetPersonInformation());
+      DisplayPersonInformation(person);
     }
+    
 
     }
 }

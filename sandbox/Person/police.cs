@@ -2,7 +2,7 @@ class Police : Person
 {
     private string _weapons;
 
-    public Police(string firstName, string lastName, int age, double weight, string tools)
+    public Police(string firstName, string lastName, int age, double weight, string weapons)
     : base(firstName, lastName, age, weight)
     {
         _weapons = weapons;
@@ -10,8 +10,13 @@ class Police : Person
        
     }
 
-    public string GetDoctorInfo()
+    public override string GetPersonInformation()
     {
-        return $"Weapons: {_weapons}: {GetPersonInfo()}";
+        return $"Police: Weapons: {_weapons}: {base.GetPersonInformation()}";
+    }
+
+    public override double GetSalary()
+    {
+        return 555000;
     }
 }
