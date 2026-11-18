@@ -1,61 +1,54 @@
+using System.Diagnostics.Contracts;
+
 abstract class BaseGoal
 {
     private string _name;
-
     private string _description;
-
     private int _points;
-
     private bool _status;
 
-    public BaseGoal()
+    public BaseGoal(string name, string description, int points, bool status = false)
     {
-        SetName();
-        SetDescription();
-        SetPoints();
-        SetStatus();
+        _name = name;
+        _description = description;
+        _points = points;
+        _status = status; 
     }
 
-    virtual protected void SetName()
-    {
-        Console.Write("What is the name of your goal: ");
-        _name = Console.ReadLine();
-    }
-
-    virtual protected void SetDescription()
-    {
-        Console.Write("What is the description of the goal: ");
-        _description = Console.ReadLine();
-    }
-
-     virtual protected void SetPoints()
-    {
-        Console.Write("How many points should this goal be worth: ");
-        _points = int.Parse(Console.ReadLine());
-    }
-
-    virtual protected void SetStatus()
-    {
-        Console.Write("Has the goal been completed? ");
-        _status = bool.Parse(Console.ReadLine());
-    }
 
     abstract public string GetConsoleString();
-
     abstract public void RecordEvent();
-
-
     abstract public string GetFileSystemString();
-    
 
-    public int GetPoints()
+   
+   public string GetName()
     {
-        return _points; 
+        return _name;
+    }
+
+    public string GetDescription()
+    {
+        return _description;
+    }
+   
+   public int GetPoints()
+    {
+        return _points;
+    }
+
+    public bool IsComplete()
+    {
+        return _status;
     }
 
     public void MarkComplete()
     {
-        return _status;
+        _status = true;
     }
+
+  
+    
+
+    
 
 }
