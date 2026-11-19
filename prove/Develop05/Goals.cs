@@ -19,22 +19,14 @@ public void AddGoal()
     Console.Write("Which type of goal would you like to create? ");
     string choice = Console.ReadLine();
 
-    Console.Write("What is the name of your goal? ");
-    string name = Console.ReadLine();
-
-    Console.Write("What is a short description of it? ");
-    string description = Console.ReadLine();
-
-    Console.Write("What is the amount of points associated with this goal? ");
-    int points = int.Parse(Console.ReadLine());
 
     if (choice == "1")
     {
-        _goals.Add(new SimpleGoal(name, description, points));
+        _goals.Add(new SimpleGoal());
     }
     else if (choice == "2")
     {
-        _goals.Add(new EternalGoal(name, description, points));
+        //_goals.Add(new EternalGoal());
     }
     else if (choice == "3")
     {
@@ -44,7 +36,7 @@ public void AddGoal()
         Console.Write("What is the bonus for accomplishing it that many times? ");
         int bonus = int.Parse(Console.ReadLine());
 
-        _goals.Add(new CheckListGoal(name, description, points, target, bonus));
+        //_goals.Add(new CheckListGoal(name, description, points, target, bonus));
     }
     else
     {
@@ -72,7 +64,10 @@ public void SaveGoals()
 
 public void DisplayGoals()
     {
-        Console.WriteLine($"You have {_goals}");
+        foreach(BaseGoal goal in _goals)
+        {
+            Console.WriteLine(goal.GetConsoleString());
+        }
     }
 
 public void DisplayScore()

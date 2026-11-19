@@ -4,16 +4,12 @@ class Program
 {
     static void Main(string[] args)
     {
-        List<BaseGoal> goals = new List<BaseGoal>();
 
+        Goals myGoals = new Goals();
      
+        myGoals.AddGoal();
+        myGoals.DisplayGoals();
 
-        goals.Add(new SimpleGoal());
-
-        foreach(BaseGoal bg in goals)
-        {
-            Console.WriteLine(bg.GetConsoleString());
-        }
        
     }
 }
