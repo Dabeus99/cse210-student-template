@@ -13,23 +13,35 @@ class CheckListGoal: BaseGoal
         _bonusPoint = bonusPoint;
     }
     
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
+
+        if (IsComplete())
+        {
+            return 0;
+        }
+
         _numberOfCompletions++;
-        if(_numberOfCompletions >= _maxGoal)
+        int earned = GetPoints();
+
+        if (_numberOfCompletions >= _maxGoal)
         {
             MarkComplete();
+            earned += _bonusPoint;
         }
-        
+
+        return earned;
+
     }
 
     public override string GetConsoleString()
     {
-        return "";
+        string checkbox = IsComplete() ? "[X]" : "[ ]";
+        return $"{checkbox} {GetName()} ({GetDescription()}) Complete {_numberOfCompletions}/{_maxGoal} times";
     }
 
     public override string GetFileSystemString()
     {
-        return "";
+        return $"checklist|{base.GetFileSystemString()}|{_numberOfCompletions}|{_maxGoal}|{_bonusPoint}";
     }
 }

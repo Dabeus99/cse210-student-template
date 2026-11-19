@@ -15,12 +15,29 @@ abstract class BaseGoal
         _status = status; 
     }
 
+public BaseGoal()
+    {
+           Console.Write("What is the name of your goal? ");
+        _name = Console.ReadLine();
 
-    abstract public string GetConsoleString();
-    abstract public void RecordEvent();
-    abstract public string GetFileSystemString();
+        Console.Write("What is the description? ");
+        _description = Console.ReadLine();
+        
+        Console.Write("How many points should this goal be worth? ");
+        _points = int.Parse(Console.ReadLine());
+    }
 
-   
+    public virtual string GetConsoleString()
+    {
+        string checkbox = _status ? "[X]" : "[ ]";
+        return $"{checkbox} {_name} {_description} {_points} {_status}";
+    }
+    abstract public int RecordEvent();
+    public virtual string GetFileSystemString()
+    {
+        return $"{_name}|{_description}|{_points}|{_status}";
+    }
+ 
    public string GetName()
     {
         return _name;

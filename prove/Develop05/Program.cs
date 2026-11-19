@@ -6,17 +6,14 @@ class Program
     {
         List<BaseGoal> goals = new List<BaseGoal>();
 
-        Console.Write("What is the name of your goal: ");
-        string name = Console.ReadLine();
+     
 
-        Console.Write("What is the name of your goal: ");
-        string name = Console.ReadLine();
-        
-        Console.Write("How many points should this goal be worth: ");
-        int points = int.Parse(Console.ReadLine());
+        goals.Add(new SimpleGoal());
 
-        goals.Add(new SimpleGoal(name, description, points));
-
+        foreach(BaseGoal bg in goals)
+        {
+            Console.WriteLine(bg.GetConsoleString());
+        }
        
     }
 }

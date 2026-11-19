@@ -6,19 +6,20 @@ class EternalGoal : BaseGoal
     {
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-        
+            return GetPoints();
     }
 
     public override string GetConsoleString()
     {
-        
+        return $"[ ] {GetName()} ({GetDescription()})";
     }
 
     public override string GetFileSystemString()
     {
-        
+        return $"eternal|{base.GetFileSystemString()}";
+
     }
 
     
